@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Management System - Dashboard</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="bg-stone-50 font-sans text-stone-900 flex h-screen overflow-hidden">
+
+    <!-- Sidebar Navigation -->
+    <aside class="w-64 bg-blue-950 text-white flex flex-col justify-between hidden md:flex shadow-lg">
+        <div>
+            <!-- Church Header -->
+            <div class="p-5 border-b border-blue-900 flex items-center gap-3">
+                <div class="bg-blue-800 p-2 rounded-lg font-bold text-lg">⛪</div>
+                <div>
+                    <h1 class="font-bold text-sm tracking-wide">Church of Jesus</h1>
+                    <p class="text-xs text-blue-300">The Glorious King</p>
+                </div>
+            </div>
+            <!-- Navigation Links -->
+            <nav class="p-4 space-y-1 text-sm">
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-amber-500 text-blue-950 font-semibold shadow-sm">📊 Dashboard</a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-200 hover:bg-blue-900 transition">📅 Service Planner</a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-200 hover:bg-blue-900 transition">🎵 Song Library</a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-200 hover:bg-blue-900 transition">👥 Members</a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-200 hover:bg-blue-900 transition">⚙️ Settings</a>
+            </nav>
+        </div>
+        <!-- Logout Button -->
+        <div class="p-4 border-t border-blue-900">
+            <button onclick="alert('Logged out!')" class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg text-sm font-medium transition shadow-sm">
+                🚪 Logout
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col h-screen overflow-y-auto">
+        <!-- Top Navbar -->
+        <header class="bg-white border-b border-stone-200 px-8 py-4 flex justify-between items-center shadow-xs">
+            <div>
+                <h2 class="text-xl font-bold text-stone-800">Dashboard</h2>
+                <p class="text-xs text-stone-500">Welcome to Church Management System</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-xs bg-stone-100 px-3 py-1.5 rounded-full font-medium text-stone-600">Admin Mode</span>
+            </div>
+        </header>
+
+        <!-- Dashboard Content Grid -->
+        <div class="p-8 grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl w-full mx-auto">
+            
+            <!-- Left 2 Columns: Stats & Modules -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Metrics Row -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-xs">
+                        <span class="text-xs text-stone-400 font-medium">Members</span>
+                        <h3 class="text-2xl font-bold text-stone-800 mt-1">198</h3>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-xs">
+                        <span class="text-xs text-stone-400 font-medium">Songs</span>
+                        <h3 class="text-2xl font-bold text-stone-800 mt-1">38</h3>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-xs">
+                        <span class="text-xs text-stone-400 font-medium">Events</span>
+                        <h3 class="text-2xl font-bold text-stone-800 mt-1">0</h3>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-xs">
+                        <span class="text-xs text-stone-400 font-medium">Tasks</span>
+                        <h3 class="text-2xl font-bold text-stone-800 mt-1">1</h3>
+                    </div>
+                </div>
+
+                <!-- Quick Setup Instructions Card -->
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                    <h3 class="font-bold text-blue-900 text-lg mb-2">🎉 Your App is Live!</h3>
+                    <p class="text-sm text-blue-800 leading-relaxed mb-4">
+                        You have successfully uploaded your code to GitHub and connected it to Cloudflare Pages. Next, you can connect your Supabase credentials to pull live church data into this dashboard.
+                    </p>
+                    <div class="bg-white p-4 rounded-lg border border-blue-100 text-xs font-mono text-stone-700">
+                        Status: Connected to Cloudflare & GitHub successfully[cite: 3].
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Birthday Widget -->
+            <div class="bg-[#fdfbf7] border border-stone-200 rounded-xl p-5 shadow-xs h-fit">
+                <div class="flex items-center gap-2 mb-4 border-b border-stone-200 pb-3">
+                    <span class="text-lg">🎂</span>
+                    <h3 class="font-bold text-stone-800 text-sm">Birthday This Month</h3>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center text-sm py-1 border-b border-stone-100">
+                        <span class="font-medium text-stone-700">Elisa Diana</span>
+                        <span class="text-stone-500 text-xs bg-stone-100 px-2 py-0.5 rounded">October 2</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm py-1 border-b border-stone-100">
+                        <span class="font-medium text-stone-700">Nathan Jazz M Masusi</span>
+                        <span class="text-stone-500 text-xs bg-stone-100 px-2 py-0.5 rounded">October 4</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm py-1 border-b border-stone-100">
+                        <span class="font-medium text-stone-700">Jarence David Casisirano</span>
+                        <span class="text-stone-500 text-xs bg-stone-100 px-2 py-0.5 rounded">October 5</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm py-1">
+                        <span class="font-medium text-stone-700">Joshua Anuat Masusi</span>
+                        <span class="text-stone-500 text-xs bg-stone-100 px-2 py-0.5 rounded">October 6</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
